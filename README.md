@@ -147,8 +147,15 @@ cd frontend
 ---
 
 
+---
 
-Source:  
+## 🖥 Source Video and Code
+
+1. Source:  
    [https://github.com/techwithtim/Django-React-Full-Stack-App](https://github.com/techwithtim/Django-React-Full-Stack-App)
-Video Source:
+
+2. Video Source:
     [https://www.youtube.com/watch?v=c-QsfbznSXI](https://www.youtube.com/watch?v=c-QsfbznSXI)
+
+---
+
