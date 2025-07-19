@@ -1,0 +1,102 @@
+Tutorial (Django + React Full Stack App)
+=========
+/* Create Virtual Python Environment */ (macos)
+python3 -m venv env
+source env/bin/activate
+
+/* Dependencies */
+install Dependencies
+pip install -r requirements.txt
+
+write names in text file
+asgiref – Provides ASGI utilities and a reference implementation for async support in Python web frameworks.
+Django – A high-level Python web framework that encourages rapid development and clean, pragmatic design.
+django-cors-headers – Django app for handling Cross-Origin Resource Sharing (CORS), allowing or blocking cross-origin requests.
+djangorestframework – A powerful and flexible toolkit for building Web APIs in Django.
+djangorestframework-simplejwt – Provides JSON Web Token (JWT) authentication for Django REST Framework using a simple and secure approach.
+PyJWT – A Python library for encoding and decoding JSON Web Tokens (JWT).
+pytz – Enables accurate and cross-platform timezone calculations using the IANA time zone database.
+sqlparse – A non-validating SQL parser for formatting and splitting SQL statements.
+psycopg2-binary – The binary distribution of psycopg2, a PostgreSQL adapter for Python.
+python-dotenv – Reads key-value pairs from a .env file and sets them as environment variables.
+
+/* Create Django Project */
+django-admin startproject backend
+cd backend
+/* Create Django App */
+python manage.py startapp api
+
+/* Configure Settings */
+add inside backend settings.py
+add this lines in beginning
+from datetime import timedelta
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+
+edit: ALLOWED_HOSTS = ["*"] - allow all hosts
+
+add this after edit jwt token settings
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+}
+
+Inside Installed Apps Add
+INSTALLED_APPS = [
+    "api",
+    "rest_framework",
+    "corsheaders",
+]
+
+At end of Settings.py add
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWS_CREDENTIALS = True
+
+TODO: More during the Course
+
+/* Moving Requirements File */
+Move file requirements.txt inside backend directory
+
+
+/* Make Migration */
+python manage.py makemigrations
+python manage.py migrate
+
+/* Run Server */
+python manage.py runserver
+
+/* User Login */
+go to url http://127.0.0.1:8000/api/user/register/
+create some user and password
+go to url http://127.0.0.1:8000/api/token/
+enter the same credentials
+you getting the new tokens
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MzAyMDg5MSwiaWF0IjoxNzUyOTM0NDkxLCJqdGkiOiI1OTUzNWRhNTU1ZTQ0MWZhODBjYjk3ZTcwMWQxN2JmNiIsInVzZXJfaWQiOjF9.jaLDtsLMB5tnTOkcz6sIaLIYL51RTYIbYPEtWBfyWBk",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyOTM2MjkxLCJpYXQiOjE3NTI5MzQ0OTEsImp0aSI6IjEwMmI5NmM0OGQwYjQ1NjhhNTVhZTYyOGFhN2ZjOGFlIiwidXNlcl9pZCI6MX0.-b1bWP5j5yMzO-f8ejfvumxcSwrwPCPJHOuXUjZ0xUM"
+}
+refresh access token with refresh token
+go to url http://127.0.0.1:8000/api/token/refresh/
+
+...
+more stuff
+
+
+
+=======================================================
+frontend React
+npm create vite@latest frontend -- --template react
+cd frontend
+Dependencies
