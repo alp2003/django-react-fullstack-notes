@@ -83,10 +83,6 @@ create some user and password
 go to url http://127.0.0.1:8000/api/token/
 enter the same credentials
 you getting the new tokens
-{
-    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1MzAyMDg5MSwiaWF0IjoxNzUyOTM0NDkxLCJqdGkiOiI1OTUzNWRhNTU1ZTQ0MWZhODBjYjk3ZTcwMWQxN2JmNiIsInVzZXJfaWQiOjF9.jaLDtsLMB5tnTOkcz6sIaLIYL51RTYIbYPEtWBfyWBk",
-    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzUyOTM2MjkxLCJpYXQiOjE3NTI5MzQ0OTEsImp0aSI6IjEwMmI5NmM0OGQwYjQ1NjhhNTVhZTYyOGFhN2ZjOGFlIiwidXNlcl9pZCI6MX0.-b1bWP5j5yMzO-f8ejfvumxcSwrwPCPJHOuXUjZ0xUM"
-}
 refresh access token with refresh token
 go to url http://127.0.0.1:8000/api/token/refresh/
 
